@@ -4,8 +4,8 @@ import java.util.List;
 
 public class Main2 {
     static void main(String[] args) {
-//        exempleStr();
-//        exempleSegmentComp();
+        exempleStr();
+        exempleSegmentComp();
         exempleStrUnNatural();
     }
 
@@ -31,6 +31,7 @@ public class Main2 {
     }
 
     private static void exempleStrUnNatural() {
+        System.out.println("Сортируем строки по количеству букв");
         List<String> stringList = new ArrayList<>(List.of("Костя", "Аня", "Маша", "Вася", "Борис"));
         System.out.println("stringList = " + stringList);
         stringList.sort(Comparator.comparingInt(s -> s.length()));
@@ -38,6 +39,7 @@ public class Main2 {
         stringList.sort(Comparator.comparingInt(s -> ((String)s).length()).reversed());
         System.out.println("stringList = " + stringList);
         //два уровня сортировки:
+        System.out.println("Сортируем строки по количеству букв а затем по алфавиту");
         stringList.sort(Comparator.comparing(s->((String)s).length()).thenComparing(s->(String)s));
         System.out.println("stringList = " + stringList);
     }
