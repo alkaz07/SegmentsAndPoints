@@ -24,6 +24,21 @@ public class Main {
 //        segments.sort(Comparator.comparingDouble(Segment::length));
         var sortedSegments = segments.stream().sorted(Comparator.comparingDouble(Segment::length)).toList();
         printSegmentsWithLength(sortedSegments);
+        
+//        List<Double> listSegmentLen = new ArrayList<>();
+//        for (Segment s: segments)
+//            listSegmentLen.add(s.length());
+        List<Double> listSegmentLen = segments.stream().map(Segment::length).toList();
+//        double average = listSegmentLen.stream().mapToDouble(Double::doubleValue).sum() / listSegmentLen.size();
+        double average = average(listSegmentLen);
+        System.out.println("average = " + average);
+    }
+
+     static double average(List<Double> values) {
+        double s = 0;
+        for (Double x: values)
+            s+= x;
+        return s/values.size();
     }
 
     private static void printSegmentsWithLength(List<Segment> segments) {
