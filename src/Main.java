@@ -32,6 +32,9 @@ public class Main {
 //        double average = listSegmentLen.stream().mapToDouble(Double::doubleValue).sum() / listSegmentLen.size();
         double average = average(listSegmentLen);
         System.out.println("average = " + average);
+
+        //segments.sort(null);    //не работает, поскольку Segment не есть Comparable
+        //printSegmentsWithLength(segments);
     }
 
      static double average(List<Double> values) {
@@ -41,7 +44,7 @@ public class Main {
         return s/values.size();
     }
 
-    private static void printSegmentsWithLength(List<Segment> segments) {
+    static void printSegmentsWithLength(List<Segment> segments) {
         System.out.println("--- Список сегментов в количестве " + segments.size()+" шт. -----");
         segments.forEach(s->IO.println(s+" длина = "+s.length()));
         System.out.println("-----------------------------------------------------------------");
