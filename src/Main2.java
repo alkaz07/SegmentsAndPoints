@@ -12,6 +12,7 @@ public class Main2 {
     private static void exempleStr() {
         List<String> stringList = new ArrayList<>(List.of("Костя", "Аня", "Маша", "Вася", "Борис"));
         System.out.println("stringList = " + stringList);
+        //Сортировка без указания критерия ("Естественным порядком")
         stringList.sort(null);              // Работает!
         System.out.println("stringList = " + stringList);
         stringList.sort(Comparator.reverseOrder());
@@ -24,6 +25,8 @@ public class Main2 {
                 new SegmentComp(10, 10, 2, 5)));
         //Вынужденно используем stream.map() для превращения списка объектов класса - наследника в список объектов родительского класса
         Main.printSegmentsWithLength(segmentList.stream().map(sc -> (Segment) sc).toList());
+
+        //Сортировка без указания критерия ("Естественным порядком")
         segmentList.sort(null);              // Работает!
         Main.printSegmentsWithLength(segmentList.stream().map(sc -> (Segment) sc).toList());
         segmentList.sort(Comparator.reverseOrder());
@@ -34,10 +37,12 @@ public class Main2 {
         System.out.println("Сортируем строки по количеству букв");
         List<String> stringList = new ArrayList<>(List.of("Костя", "Аня", "Маша", "Вася", "Борис"));
         System.out.println("stringList = " + stringList);
+        //количество букв в качестве критерия
         stringList.sort(Comparator.comparingInt(s -> s.length()));
         System.out.println("stringList = " + stringList);
         stringList.sort(Comparator.comparingInt(s -> ((String)s).length()).reversed());
         System.out.println("stringList = " + stringList);
+
         //два уровня сортировки:
         System.out.println("Сортируем строки по количеству букв а затем по алфавиту");
         stringList.sort(Comparator.comparing(s->((String)s).length()).thenComparing(s->(String)s));

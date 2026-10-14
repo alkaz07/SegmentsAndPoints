@@ -12,4 +12,6 @@ public class SegmentComp extends Segment implements Comparable<SegmentComp>{
         double len2 = o.length();
         return Double.compare(len1, len2);
     }
+
+
 }
